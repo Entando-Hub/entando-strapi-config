@@ -162,14 +162,11 @@ Desktop.ini
 /**/.ent/
 /ui/**/build/
 
-####
-#/bundle/
-
 ########
 .ent/ent-state
 
 ####
-#bundle/
+bundle/
 
 ####
 #/bundle/resources/

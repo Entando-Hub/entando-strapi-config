@@ -1,5 +1,5 @@
-image: entando/entando-strapi-config:1.0.0
-dbms: postgresql
+image: entando/entando-strapi-config:1.0.1
+dbms: none
 ingressPath: "/entando-strapi-config-api"
 healthCheckPath: "/actuator/health"
 roles:
