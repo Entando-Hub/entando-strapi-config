@@ -129,14 +129,6 @@ export default class StrapiSettingForm extends Component {
                                 </button>
                             </Col>
                         </Row>
-                        {/* <Row>
-                            <Col lg={8}></Col>
-                            <Col lg={4}>
-                                <button className="btn-primary btn"
-                                    disabled={!baseUrl || error}>{BUTTON_SAVE}
-                                </button>
-                            </Col>
-                        </Row> */}
                     </Grid>
                 </form>
                 <div>

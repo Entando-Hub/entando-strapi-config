@@ -50,4 +50,4 @@ class EtApp extends HTMLElement {
         ReactDOM.render(<App config={this.#config} />, this.appendChild(this.mountPoint))
     }
 }
-customElements.get('et-strapi-config-app') || customElements.define("et-strapi-config-app", EtApp)
+customElements.get('strapi-config-app') || customElements.define("strapi-config-app", EtApp)

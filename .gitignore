@@ -166,7 +166,9 @@ Desktop.ini
 .ent/ent-state
 
 ####
-bundle/
+/bundle/
+
+# /ui/widgets/widgets-dir/strapi-config-app/bundle/
 
 ####
 #/bundle/resources/
