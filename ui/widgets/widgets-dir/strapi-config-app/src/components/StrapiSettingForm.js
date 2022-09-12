@@ -104,7 +104,7 @@ export default class StrapiSettingForm extends Component {
                                         </sup>
                                     </span>
                                 </label>
-                                <FieldLevelHelp buttonClass="" close={undefined} content={TOOLTIP_URL} inline placement="right" rootClose />
+                                <FieldLevelHelp content={TOOLTIP_URL} inline placement="right" rootClose />
                             </Col>
                             <Col lg={5}>
                                 <input
