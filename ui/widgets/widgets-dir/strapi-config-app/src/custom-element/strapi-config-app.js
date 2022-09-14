@@ -33,6 +33,7 @@ class EtApp extends HTMLElement {
     }
     connectedCallback() {
         this.mountPoint = document.createElement('span')
+        this.appendChild(this.mountPoint)
         this.keycloak = { ...getKeycloakInstance(), initialized: true }
 
         //For keycloak
@@ -47,7 +48,7 @@ class EtApp extends HTMLElement {
         this.render()
     }
     render() {
-        ReactDOM.render(<App config={this.#config} />, this.appendChild(this.mountPoint))
+        ReactDOM.render(<App config={this.#config} />, this.mountPoint)
     }
 }
 customElements.get('strapi-config-app') || customElements.define("strapi-config-app", EtApp)
