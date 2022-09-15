@@ -1,7 +1,6 @@
-image: entando/entando-strapi-config:1.0.1
+image: entando/entando-strapi-config:1.0.3
 dbms: none
 ingressPath: "/entando-strapi-config-api"
 healthCheckPath: "/actuator/health"
 roles:
-  - "et-first-role"
-  - "et-second-role"
+  - "admin"
