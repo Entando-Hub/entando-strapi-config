@@ -3,7 +3,7 @@ import { Spinner } from 'patternfly-react/dist/js/components/Spinner';
 import { TimedToastNotification, ToastNotificationList } from 'patternfly-react/dist/js/components/ToastNotification';
 import React, { Component } from 'react';
 import { getStrapiConfiguration, saveStrapiConfiguration } from '../api/api';
-import { BUTTON_SAVE, LABEL_APPLICATION_URL, LABEL_STRAPI_CONFIG_SETTINGS, MSG_REQ_APPLICATION_URL, MSG_VALID_APPLICATION_URL, TOOLTIP_URL } from '../helpers/constants';
+import { BUTTON_SAVE, LABEL_APPLICATION_URL, LABEL_STRAPI_CONFIG_SETTINGS, MSG_REQ_APPLICATION_URL, MSG_VALID_APPLICATION_URL, TOOLTIP_URL, VALID_URL_REGEX } from '../helpers/constants';
 
 export default class StrapiSettingForm extends Component {
     constructor(props) {
@@ -24,7 +24,7 @@ export default class StrapiSettingForm extends Component {
         } else if((value.match(" "))){
             return MSG_VALID_APPLICATION_URL
         } else if (
-            !value.match(/((^((http)|(https))?:\/\/(((\w+)\.(\w+)|)\/(((entando-strapi)?$))|((www)|(\w+))\.((\w+)|((\w+)-(\w+))|(\d+\.\d+\.\d+\.\d+))\.(((\w{3})|(\w{2}))|((\w{3}).*((\w{3})|(\w{2}))))\/(entando-strapi$)))|((https?:\/\/))(?:([a-zA-Z]+)|(\d+\.\d+\.\d+\.\d+)):\d{4}?$)/)
+            VALID_URL_REGEX.test(value) === false
         ) {
             return MSG_VALID_APPLICATION_URL;
         } else {
