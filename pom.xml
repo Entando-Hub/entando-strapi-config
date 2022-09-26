@@ -151,8 +151,8 @@
             </activation>
             <dependencies>
                 <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
                 </dependency>
             </dependencies>
         </profile>
@@ -160,8 +160,8 @@
             <id>prod</id>
             <dependencies>
                 <dependency>
-                    <groupId>com.h2database</groupId>
-                    <artifactId>h2</artifactId>
+                    <groupId>org.postgresql</groupId>
+                    <artifactId>postgresql</artifactId>
                 </dependency>
             </dependencies>
         </profile>
