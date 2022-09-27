@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.entando</groupId>
     <artifactId>entando-strapi-config</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <description>Strapi application API Configurations for entando</description>
     <properties>
         <problem-spring-web.version>0.25.0</problem-spring-web.version>
