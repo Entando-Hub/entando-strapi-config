@@ -18,10 +18,13 @@ export default class StrapiSettingForm extends Component {
         };
     }
 
+    /**
+     * @deprecated in favour of validateUrl
+     */
     validate = (value) => {
         if (!value) {
             return MSG_REQ_APPLICATION_URL;
-        } else if((value.match(" "))){
+        } else if ((value.match(" "))) {
             return MSG_VALID_APPLICATION_URL
         } else if (
             VALID_URL_REGEX.test(value) === false
@@ -32,9 +35,26 @@ export default class StrapiSettingForm extends Component {
         }
     }
 
+    isValidUrl = (urlString) => {
+        try {
+            return Boolean(new URL(urlString));
+        }
+        catch (e) {
+            return false;
+        }
+    }
+
+    validateUrl = (value) => {
+        if (!value) {
+            return MSG_REQ_APPLICATION_URL;
+        }
+        return this.isValidUrl(value) ? "" : MSG_VALID_APPLICATION_URL;
+    }
+
+
     handleUserInput = e => {
         this.setState({
-            error: this.validate(e.target.value),
+            error: this.validateUrl(e.target.value),
             baseUrl: e.target.value
         });
     };
@@ -136,7 +156,7 @@ export default class StrapiSettingForm extends Component {
                 <div>
                     {this.state.showNotification &&
                         <ToastNotificationList>
-                            <TimedToastNotification onDismiss={()=>this.setState({showNotification: false})} type={this.state.notificationType}>
+                            <TimedToastNotification onDismiss={() => this.setState({ showNotification: false })} type={this.state.notificationType}>
                                 <span> {this.state.message} </span>
                             </TimedToastNotification>
                         </ToastNotificationList>}
