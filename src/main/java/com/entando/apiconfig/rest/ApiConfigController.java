@@ -3,6 +3,7 @@ package com.entando.apiconfig.rest;
 import java.util.List;
 import java.util.Optional;
 
+import javax.annotation.security.RolesAllowed;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -46,7 +47,7 @@ public class ApiConfigController {
 	@Operation(summary = "Create an Api Configuration", description = "Public api, no authentication required.")
 	@PostMapping("/")
 	@CrossOrigin
-//	@RolesAllowed({ ApplicationConstants.ADMIN })
+	@RolesAllowed({ ApplicationConstants.ROLE_STRAPI_USER })
 	public ResponseEntity<ApiConfigResponseView> createApiConfiguration(@Valid @RequestBody ApiConfigRequestView configRequestView) {
 		logger.debug("REST request to create an Api Configuration: {}", configRequestView);
 		try {
@@ -62,7 +63,7 @@ public class ApiConfigController {
 	@Operation(summary = "Update an Api Configuration", description = "Public api, no authentication required.")
 	@PutMapping("/{apiConfigId}")
 	@CrossOrigin
-//	@RolesAllowed({ ApplicationConstants.ADMIN })
+	@RolesAllowed({ ApplicationConstants.ROLE_STRAPI_USER })
 	public ResponseEntity<ApiConfigResponseView> updateApiConfiguration(@Valid @RequestBody ApiConfigRequestView reqView, @PathVariable Long apiConfigId) {
 		logger.debug("REST request to update Api Configuration: {}", apiConfigId);
 		try {
@@ -86,7 +87,6 @@ public class ApiConfigController {
 	@Operation(summary = "Get the api configuration", description = "Public api, no authentication required.")
 	@GetMapping("/")
 	@CrossOrigin
-//	@RolesAllowed({ ApplicationConstants.ADMIN })
 	public ResponseEntity<ApiConfigResponseView> getApiConfigurations() {
 		logger.debug("REST request to get Api Configurations");
 		List<ApiConfig> configs = apiConfigService.getAllApiConfigurations();
@@ -101,7 +101,6 @@ public class ApiConfigController {
 	@Operation(summary = "Get the Api Configuration details by id", description = "Public api, no authentication required.")
 	@GetMapping("/{apiConfigId}")
 	@CrossOrigin
-//	@RolesAllowed({ ApplicationConstants.ADMIN })
 	public ResponseEntity<ApiConfigResponseView> getApiConfigById(@PathVariable Long apiConfigId) {
 		logger.debug("REST request to get Api Configuration by Id: {}", apiConfigId);
 		Optional<ApiConfig> apiConfigOptional = apiConfigService.getApiConfiguration(apiConfigId);
@@ -116,7 +115,7 @@ public class ApiConfigController {
 	@Operation(summary = "Delete an Api Configuration", description = "Public api, no authentication required.")
 	@DeleteMapping("/{apiConfigId}")
 	@CrossOrigin
-//	@RolesAllowed({ ApplicationConstants.ADMIN })
+	@RolesAllowed({ ApplicationConstants.ROLE_STRAPI_USER })
 	public ResponseEntity<String> deleteApiConfiguration(@PathVariable Long apiConfigId) {
 		logger.debug("REST request to delete Api Configuration {}", apiConfigId);
 		try {
