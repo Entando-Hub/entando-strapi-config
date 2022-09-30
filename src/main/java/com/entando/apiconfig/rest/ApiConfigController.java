@@ -87,7 +87,6 @@ public class ApiConfigController {
 	@Operation(summary = "Get the api configuration", description = "Public api, no authentication required.")
 	@GetMapping("/")
 	@CrossOrigin
-	//@RolesAllowed({ ApplicationConstants.ROLE_STRAPI_USER })
 	public ResponseEntity<ApiConfigResponseView> getApiConfigurations() {
 		logger.debug("REST request to get Api Configurations");
 		List<ApiConfig> configs = apiConfigService.getAllApiConfigurations();
