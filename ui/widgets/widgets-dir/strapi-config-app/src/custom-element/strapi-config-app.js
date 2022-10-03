@@ -37,15 +37,15 @@ class EtApp extends HTMLElement {
         this.keycloak = { ...getKeycloakInstance(), initialized: true }
 
         //For keycloak
-        // this.unsubscribeFromKeycloakEvent = subscribeToWidgetEvent(KEYCLOAK_EVENT_TYPE, (e) => {
-        //     if (e.detail.eventType === "onReady") {
-        //         this.keycloak = { ...getKeycloakInstance(), initialized: true }
-        //         this.render()
-        //     }
-        // })
+        this.unsubscribeFromKeycloakEvent = subscribeToWidgetEvent(KEYCLOAK_EVENT_TYPE, (e) => {
+            if (e.detail.eventType === "onReady") {
+                this.keycloak = { ...getKeycloakInstance(), initialized: true }
+                this.render()
+            }
+        })
 
         //Comment this if need keycloak
-        this.render()
+        //this.render()
     }
     render() {
         ReactDOM.render(<App config={this.#config} />, this.mountPoint)
