@@ -49,7 +49,7 @@ const getDefaultOptions = (defaultBearer) => {
 }
 
 const getKeycloakToken = () => {
-    return ''; // only for local test
+    //return ''; // only for local test
     if (window && window.entando && window.entando.keycloak && window.entando.keycloak.authenticated) {
         return window.entando.keycloak.token
     } else {
